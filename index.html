@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+   <!-- <script src="calcule.js"></script>-->
+    <script src="./raphael-2.1.4.min.js"></script>
+    <script src="./justgage.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <div class="entete">
+        <h1>Calculateur Rp </h1>
+        <p></p>
+    </div>  
+    <div class="row">
+        <div class="col-sm-5" >
+<!-- données -->
+            <div class="calculbox">
+                <h1> CALCULE</h1>
+                <div class="donbox">
+                    <label for="affection">affection</label>
+                    <input type="text" name="affection" id="affect" value="">
+                </div>
+
+                <div class="donbox">
+                    <label for="interet">interet</label>
+                    <input type="text" name="interet" id="inter" value="">
+                </div>
+
+                <div class="donbox">
+                    <label for="febrile">febrile</label>
+                    <input type="text"  name="febrile" id="febri" value="">
+                </div>
+
+                <div class="donbox">
+                    <label for="colere">colere</label>
+                    <input type="text"  name="colere" id="coler" value="">
+                </div>
+
+                <input type="submit" class="btn1"  onclick="update()" value="calcule" >
+
+            </div>
+        
+        </div>
+        <div class="col-sm-7" >
+<!-- jauge  -->
+            <div class="jauge">    
+                
+                    <p>Son control est de <span id="control"> %</p> 
+               
+                <div id="gauge" class="200x160px"></div>
+            </div>
+        </div>
+<!-- lancé de des-->
+        <div class="col-sm-5">
+            <div class="lancer">
+                <p>
+                    Valeur des des : <span id="des"></span>.
+                </p>
+                <input type="submit" class="btn2" onclick="lancedes()" value="Lancer">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script>
+    var g = new JustGage({
+    id: "gauge",
+    value: 100,
+    min: 0,
+    max: 100,
+    title: "Self control",
+    titleFontColor: "white",
+    titlePosition: "below",
+    valueFontColor: "white",
+    customSectors: [{
+        color : "##FF0000",
+        lo : 0,
+        hi : 10
+      },{
+        color : "#FF8C00",
+        lo : 10,
+        hi : 28
+    },{
+        color : "#FFA500",
+        lo : 28,
+        hi : 45
+    },{
+        color : "#FFFF00",
+        lo : 40,
+        hi : 55   
+    },{
+        color : "#9ACD32",
+        lo : 55,
+        hi : 80   
+    },{
+        color : "#008000",
+        lo : 80,
+        hi : 100   
+      }],
+  });
+
+function update (){
+
+var ment = 40;
+
+var aff = document.getElementById("affect").value;
+var int = document.getElementById("inter").value;
+var feb = document.getElementById("febri").value;  
+var col = document.getElementById("coler").value;
+
+
+var bete = (ment + ( aff  - int - feb - col));
+
+    if( bete > 38 ){
+        document.getElementById("control").innerHTML = bete*2;
+        var con = bete*2;
+        g.refresh(con);
+    }
+    else if (bete > 20 ){
+        document.getElementById("control").innerHTML = bete*1.5;
+        var con = bete*1.5;
+        g.refresh(con);
+    }
+    else if ( bete > 10){
+        document.getElementById("control").innerHTML = bete*1.2;
+        var con = bete*1.2;
+        g.refresh(con);
+    }
+    else{
+        document.getElementById("control").innerHTML = bete*0.5;
+        var con = bete*0.5;
+        g.refresh(con);
+    }
+}
+
+
+function lancedes(){
+    document.getElementById("des").innerHTML =
+    Math.floor(Math.random() * 100);
+} 
+
+
+</script>
+    
+    
+</body>
+</html>
