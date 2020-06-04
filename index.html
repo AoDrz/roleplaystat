@@ -63,10 +63,10 @@
         <div class="col-sm-5">
             <div class="lancer">
                
-                <input type="submit" class="btn2" onclick="lancedes()" value="Lancer de dès">
+                <input type="submit" class="btn2" onclick="lancedes() , desdeu()" value="Lancer de dès">
 
                 <p>
-                    Résultat : <span id="des"></span>.
+                    Résultat : <span id="des"></span> + <span id="des2"></span>.
                 </p>
             </div>
         </div>
@@ -153,6 +153,10 @@ function lancedes(){
     Math.floor(Math.random() * 100);
 } 
 
+function desdeu(){
+    document.getElementById("des2").innerHTML =
+    Math.floor((Math.random()*6)+1);
+}
 
 </script>
     
