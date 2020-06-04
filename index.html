@@ -8,7 +8,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-   <!-- <script src="calcule.js"></script>-->
     <script src="./raphael-2.1.4.min.js"></script>
     <script src="./justgage.js"></script>
     <title>Document</title>
@@ -25,28 +24,28 @@
         <div class="col-sm-5" >
 <!-- données -->
             <div class="calculbox">
-                <h1> CALCULE</h1>
+                <h1> Calcul</h1>
                 <div class="donbox">
-                    <label for="affection">affection</label>
+                    <label for="affection">Affection</label>
                     <input type="text" name="affection" id="affect" value="">
                 </div>
 
                 <div class="donbox">
-                    <label for="interet">interet</label>
+                    <label for="interet">Intérêt</label>
                     <input type="text" name="interet" id="inter" value="">
                 </div>
 
                 <div class="donbox">
-                    <label for="febrile">febrile</label>
+                    <label for="febrile">Fébrilité</label>
                     <input type="text"  name="febrile" id="febri" value="">
                 </div>
 
                 <div class="donbox">
-                    <label for="colere">colere</label>
+                    <label for="colere">Colère</label>
                     <input type="text"  name="colere" id="coler" value="">
                 </div>
 
-                <input type="submit" class="btn1"  onclick="update()" value="calcule" >
+                <input type="submit" class="btn1"  onclick="update()" value="Calcul du Self Contrôle" >
 
             </div>
         
@@ -55,7 +54,7 @@
 <!-- jauge  -->
             <div class="jauge">    
                 
-                    <p>Son control est de <span id="control"> %</p> 
+                    <p>Son contrôle est de <span id="control"> %</p> 
                
                 <div id="gauge" class="200x160px"></div>
             </div>
@@ -64,9 +63,9 @@
         <div class="col-sm-5">
             <div class="lancer">
                 <p>
-                    Valeur des des : <span id="des"></span>.
+                    Résultat : : <span id="des"></span>.
                 </p>
-                <input type="submit" class="btn2" onclick="lancedes()" value="Lancer">
+                <input type="submit" class="btn2" onclick="lancedes()" value="Lancer de dès">
             </div>
         </div>
 
