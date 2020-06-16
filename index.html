@@ -115,34 +115,33 @@
 
 function update (){
 
-var ment = 40;
+var ment = 20
 
-var aff = document.getElementById("affect").value;
-var int = document.getElementById("inter").value;
-var feb = document.getElementById("febri").value;  
-var col = document.getElementById("coler").value;
+var aff = parseInt(document.getElementById("affect").value);
+var int = parseInt(document.getElementById("inter").value);
+var feb = parseInt(document.getElementById("febri").value);  
+var col = parseInt(document.getElementById("coler").value);
 
+var bete = ment + (aff + int - feb - col);
 
-var bete = (ment + ( aff  - int - feb - col));
-
-    if( bete > 38 ){
+    if( bete >= 20){
+        document.getElementById("control").innerHTML = bete*2.5;
+        var con = bete*2.5;
+        g.refresh(con);
+    }
+    else if (bete < 20 ){
         document.getElementById("control").innerHTML = bete*2;
         var con = bete*2;
         g.refresh(con);
     }
-    else if (bete > 20 ){
-        document.getElementById("control").innerHTML = bete*1.5;
-        var con = bete*1.5;
-        g.refresh(con);
-    }
-    else if ( bete > 10){
-        document.getElementById("control").innerHTML = bete*1.2;
-        var con = bete*1.2;
+    else if (bete < 0){
+        document.getElementById("control").innerHTML = bete*-1;
+        var con = bete*-1;
         g.refresh(con);
     }
     else{
-        document.getElementById("control").innerHTML = bete*0.5;
-        var con = bete*0.5;
+        document.getElementById("control").innerHTML = bete*-1;
+        var con = bete*-1;
         g.refresh(con);
     }
 }
